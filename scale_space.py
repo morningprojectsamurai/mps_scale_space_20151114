@@ -266,9 +266,9 @@ class ScaleSpace:
         source_image = self._images[-1]
         sampled_image = Image(0, width=source_image.width/2, height=source_image.height/2)
 
-        for i in range(0, len(source_image), 2):
-            for j in range(0, len(source_image[i]), 2):
-                sampled_image[i / 2][j / 2] = source_image[i][j]
+        for i in range(0, len(source_image) / 2):
+            for j in range(0, len(source_image[i]) / 2):
+                sampled_image[i][j] = source_image[i * 2][j * 2]
         return ScaleSpace(sampled_image, self._sigma, self._s, self._filters)
 
     def __iter__(self):
